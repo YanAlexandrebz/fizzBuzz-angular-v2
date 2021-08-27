@@ -1,4 +1,3 @@
-import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -22,15 +21,11 @@ export class FizzBuzzService {
       }
     }
     return fizzBuzz;
-<<<<<<< HEAD
   }
   
-=======
-  } 
 
   limpar(): string[]{
     const fizzBuzz: string[] = [];
     return fizzBuzz;
   }
->>>>>>> master
 }
