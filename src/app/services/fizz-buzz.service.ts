@@ -22,5 +22,15 @@ export class FizzBuzzService {
       }
     }
     return fizzBuzz;
+<<<<<<< HEAD
+  }
+  
+=======
   } 
+
+  limpar(): string[]{
+    const fizzBuzz: string[] = [];
+    return fizzBuzz;
+  }
+>>>>>>> master
 }

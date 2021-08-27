@@ -28,4 +28,8 @@ export class FizzBuzzComponent implements OnInit {
     this.resultado = this.fizzBuzzService.gerar(this.limite);
   }
 
+  limpar(){
+    this.resultado = this.fizzBuzzService.limpar();
+  }
+
 }
