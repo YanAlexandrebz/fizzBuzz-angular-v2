@@ -27,6 +27,7 @@
     >
     Gerar
   </button>
+
   </div>
 
   <div class="col-auto">
@@ -38,5 +39,5 @@
 <hr>
 <h2 class="resultado" *ngIf="resultado.length > 0">{{ limite | retorno }}</h2>
 <ul class="list-group p-2">
-  <li class="list-group-item" *ngFor="let linha of resultado">{{ linha }}</li>
+  <li class="list-group-item list-group-item-primary" *ngFor="let linha of resultado">{{ linha }}</li>
 </ul>
