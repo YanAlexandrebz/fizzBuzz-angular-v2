@@ -29,6 +29,12 @@
   </button>
 
   </div>
+
+  <div class="col-auto">
+    <button type="button" class="btn btn-secondary mb-3" (click)="limpar()">Limpar</button>
+  </div>
+
+
 </form>
 <hr>
 <h2 class="resultado" *ngIf="resultado.length > 0">{{ limite | retorno }}</h2>
