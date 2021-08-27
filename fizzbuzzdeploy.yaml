@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fizzbuzz-deployment
+  labels:
+    app: fizzbuzz
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fizzbuzz
+  template:
+    metadata:
+      labels:
+        app: fizzbuzz
+    spec:
+      containers:
+      - name: fizzbuzz-container
+        image: yanalexandrebz/fizzbuzz:v2
+        ports:
+        - containerPort: 80
