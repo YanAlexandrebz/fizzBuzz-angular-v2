@@ -23,4 +23,9 @@ export class FizzBuzzService {
     }
     return fizzBuzz;
   } 
+
+  limpar(): string[]{
+    const fizzBuzz: string[] = [];
+    return fizzBuzz;
+  }
 }
