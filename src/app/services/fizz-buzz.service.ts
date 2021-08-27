@@ -22,5 +22,6 @@ export class FizzBuzzService {
       }
     }
     return fizzBuzz;
-  } 
+  }
+  
 }
