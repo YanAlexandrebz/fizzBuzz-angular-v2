@@ -7,7 +7,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "save-terraform-states"
+    bucket = "rm354938bucketfiap"
     key = "dev.tfstate"
     region = "us-east-1"
   }
