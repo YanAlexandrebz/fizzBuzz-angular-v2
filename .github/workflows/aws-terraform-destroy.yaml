@@ -27,5 +27,16 @@ jobs:
       - name: 'Terraform Init'
         run: terraform init
 
+      - name: Delete all images from ECR
+        run: |
+          IMAGE_IDS=$(aws ecr list-images --repository-name my-app-fiap-ci-cd --region us-east-1 --query 'imageIds[*]' --output json)
+          
+          if [ "$IMAGE_IDS" != "[]" ]; then
+            aws ecr batch-delete-image --repository-name my-app-fiap-ci-cd --region us-east-1 --image-ids "$IMAGE_IDS"
+            echo "Deleted all images."
+          else
+            echo "No images to delete."
+          fi
+
       - name: 'Terraform Destroy'
         run: terraform destroy -auto-approve
