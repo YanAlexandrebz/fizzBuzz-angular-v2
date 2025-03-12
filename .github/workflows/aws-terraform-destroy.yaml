@@ -33,6 +33,7 @@ jobs:
           jq -c '.[] | {imageDigest: .imageDigest, imageTag: .imageTag}' | \
           jq -c 'with_entries(if .value == null then del(.value) else . end)' | \
           jq -s . | \
+          sed 's/"/\\"/g' | \
           xargs -I {} aws ecr batch-delete-image --repository-name my-app-fiap-ci-cd --image-ids '{}'
 
       - name: 'Terraform Destroy'
