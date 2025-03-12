@@ -27,5 +27,11 @@ jobs:
       - name: 'Terraform Init'
         run: terraform init
 
+      - name: 'Delete ECR Images'
+        run: |
+          aws ecr list-images --repository-name my-app-fiap-ci-cd --query 'imageIds[*]' --output json | \
+          jq -c '.[]' | \
+          xargs -I {} aws ecr batch-delete-image --repository-name my-app-fiap-ci-cd --image-ids '{}'
+
       - name: 'Terraform Destroy'
         run: terraform destroy -auto-approve
