@@ -30,7 +30,7 @@ jobs:
       - name: 'Delete ECR Images'
         run: |
           aws ecr list-images --repository-name my-app-fiap-ci-cd --query 'imageIds[*]' --output json | \
-          jq -c '.[]' | \
+          jq -c '.[] | {imageDigest: .imageDigest, imageTag: .imageTag}' | \
           xargs -I {} aws ecr batch-delete-image --repository-name my-app-fiap-ci-cd --image-ids '{}'
 
       - name: 'Terraform Destroy'
