@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "application_repository" {
-    name = "fiap-application-repository"
+    name = "my-app-fiap-ci-cd"
     image_tag_mutability = "MUTABLE"
 }
 
