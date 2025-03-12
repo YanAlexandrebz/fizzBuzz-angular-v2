@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 'Checkout GitHub Actions'
+      - name: 'Checkout Repository'
         uses: actions/checkout@v2
 
       - name: 'Configure AWS Credentials'
@@ -36,7 +36,6 @@ jobs:
         run: terraform plan -out=tfplan
 
       - name: 'Terraform Apply'
-        if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve tfplan
 
   build-and-push-docker-image:
@@ -45,7 +44,7 @@ jobs:
     needs: terraform
 
     steps:
-      - name: 'Checkout GitHub Actions'
+      - name: 'Checkout Repository'
         uses: actions/checkout@v2
 
       - name: 'Configure AWS Credentials'
@@ -74,7 +73,7 @@ jobs:
     needs: build-and-push-docker-image
 
     steps:
-      - name: 'Checkout GitHub Actions'
+      - name: 'Checkout Repository'
         uses: actions/checkout@v2
 
       - name: 'Configure AWS Credentials'
