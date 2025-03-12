@@ -10,8 +10,8 @@ resource "aws_ecs_task_definition" "my_application" {
   container_definitions = jsonencode([
     {
       name      = "my_application-container"
-      image     = "nginx:latest"
-      #image     = "${aws_account_id}.dkr.ecr.us-east-1.amazonaws.com/my-app:latest"
+      #image     = "nginx:latest"
+      image     = "593793025033.dkr.ecr.us-east-1.amazonaws.com/my-app-fiap-ci-cd:latest"
       essential = true
       cpu       = 256
       memory    = 512
@@ -21,19 +21,19 @@ resource "aws_ecs_task_definition" "my_application" {
           hostPort      = 80
         }
       ]
-      logConfiguration = {
-        logDriver = "awslogs"
-        options = {
-          awslogs-group         = "/ecs/my_application"
-          awslogs-region        = "us-east-1"
-          awslogs-stream-prefix = "ecs"
-        }
-      }
+      # Remova a configuração de log se não quiser usar o CloudWatch Logs
+      # logConfiguration = {
+      #   logDriver = "awslogs"
+      #   options = {
+      #     awslogs-group         = "/ecs/my_application"
+      #     awslogs-region        = "us-east-1"
+      #     awslogs-stream-prefix = "ecs"
+      #   }
+      # }
     }
   ])
 }
 
-# filepath: c:\Users\Yan\Documents\angular\fizzBuzz-angular-v2\tasks.tf
 resource "aws_ecs_service" "my_application_service" {
   name            = "my_application_service"
   cluster         = aws_ecs_cluster.my_cluster.id
