@@ -1,8 +1,4 @@
-resource "aws_ecs_cluster" "cluster-fiap" {
-  name = "ecs-cluster-fiap"
-}
-
-resource "aws_cloudwatch_log_group" "ecs_app_fiap_log_group" {
-  name = "/ecs/my-application"
-  retention_in_days = 30
+# filepath: c:\Users\Yan\Documents\angular\fizzBuzz-angular-v2\cluster.tf
+resource "aws_ecs_cluster" "my_cluster" {
+  name = "my-cluster-fiap-yan"
 }
