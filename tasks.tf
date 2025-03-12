@@ -11,7 +11,7 @@ resource "aws_ecs_task_definition" "my_application" {
     {
       name      = "my_application-container"
       #image     = "nginx:latest"
-      image     = "${aws_account_id}.dkr.ecr.us-east-1.amazonaws.com/my-app-fiap-ci-cd:latest"
+      image     = "593793025033.dkr.ecr.us-east-1.amazonaws.com/my-app-fiap-ci-cd:latest"
       essential = true
       cpu       = 256
       memory    = 512
