@@ -91,4 +91,4 @@ jobs:
 
       - name: 'Update ECS Service'
         run: |
-          aws ecs update-service --cluster my-cluster-fiap-yan --service my-service-fiap-yan --force-new-deployment
+          aws ecs update-service --cluster my-cluster-fiap-yan --service my_application_service --force-new-deployment
