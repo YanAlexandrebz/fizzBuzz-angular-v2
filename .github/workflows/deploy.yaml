@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - feature/terraform-aws-fiap
 
 jobs:
   terraform:
