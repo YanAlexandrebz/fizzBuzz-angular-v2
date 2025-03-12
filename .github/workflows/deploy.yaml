@@ -84,6 +84,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - name: 'Create ECS Service if not exists'
+        run: |
+          aws ecs describe-services --cluster my-cluster-fiap-yan --services my-service-fiap-yan || \
+          aws ecs create-service --cluster my-cluster-fiap-yan --service-name my-service-fiap-yan --task-definition my-task-def --desired-count 1 --launch-type FARGATE --network-configuration "awsvpcConfiguration={subnets=[subnet-12345678],securityGroups=[sg-12345678],assignPublicIp=ENABLED}"
+
       - name: 'Update ECS Service'
         run: |
           aws ecs update-service --cluster my-cluster-fiap-yan --service my-service-fiap-yan --force-new-deployment
