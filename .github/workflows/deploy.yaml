@@ -1,10 +1,7 @@
 name: Terraform Deploy
 
 on:
-  push:
-    branches:
-      - master
-      - feature/terraform-aws-fiap
+  workflow_dispatch:
 
 jobs:
   terraform:
