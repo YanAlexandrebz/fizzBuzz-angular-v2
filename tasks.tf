@@ -33,6 +33,7 @@ resource "aws_ecs_task_definition" "my_application" {
   ])
 }
 
+# filepath: c:\Users\Yan\Documents\angular\fizzBuzz-angular-v2\tasks.tf
 resource "aws_ecs_service" "my_application_service" {
   name            = "my_application_service"
   cluster         = aws_ecs_cluster.my_cluster.id
@@ -53,8 +54,6 @@ resource "aws_ecs_service" "my_application_service" {
   }
 
   depends_on = [
-    aws_ecs_cluster.cluster-fiap,
-    aws_ecr_repository.application_repository,
-    aws_lb.my_load_balancer
+    aws_lb_listener.my_listener
   ]
 }
